@@ -1,0 +1,15 @@
+[Unit]
+Description=My Script Service
+After=multi-user.target
+Requires=multi-user.target
+
+[Service]
+Type=idle
+WatchdogSec=30s
+Restart=on-failure
+WorkingDirectory="/home/enjoy/project/clone git/services"
+ExecStart=/usr/bin/python3 "/home/enjoy/project/clone git/services/twitter_musk.py" > "/home/enjoy/project/clone git/logs/twitter_musk.log" 2>&1
+User=enjoy
+
+[Install]
+WantedBy=multi-user.target
